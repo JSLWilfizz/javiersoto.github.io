@@ -105,12 +105,35 @@
     </ul>
   </div>
 
-  <div class="section hidden">
-    <h2>Proyectos</h2>
-    <ul>
-      <li class="project-soon">📊 Pronto... (Aquí se agregarán tus 3 proyectos)</li>
-    </ul>
+  <div class="section">
+    <h2>Exploración Interactiva del IPC</h2>
+    <button onclick="toggleIframe()" id="toggle-btn">Mostrar análisis interactivo</button>
+    <div id="iframe-container" class="hidden" style="margin-top: 20px;">
+      <iframe
+        src="https://ipc-eda.streamlit.app/?embed_options=dark_theme"
+        title="EDA IPC"
+        width="100%"
+        height="600px"
+        style="border: 1px solid #ccc; border-radius: 8px;"
+        allowfullscreen
+      ></iframe>
+    </div>
   </div>
+
+  <script>
+    function toggleIframe() {
+      const iframeContainer = document.getElementById("iframe-container");
+      const toggleBtn = document.getElementById("toggle-btn");
+
+      if (iframeContainer.classList.contains("hidden")) {
+        iframeContainer.classList.remove("hidden");
+        toggleBtn.textContent = "Ocultar análisis interactivo";
+      } else {
+        iframeContainer.classList.add("hidden");
+        toggleBtn.textContent = "Mostrar análisis interactivo";
+      }
+    }
+  </script>
 
 </body>
 </html>
